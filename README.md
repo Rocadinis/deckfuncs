@@ -1,2 +1,2 @@
 # somelibraries
-Libraries for various things...
+This is a small repository with, as the name implies, some libraries for various things. More libraries will be added over time. Feel free to report any bugs or make suggestions on the Issues tab!
