@@ -1,6 +1,6 @@
 Deckfuncs is a library for card-based games.
 IMPORTANT! If you are going to use these functions, keep in mind that the variables correspondant to Hands, Decks and Graveyards (if this last one does exist) need to be Lists in order for these functions to work, since this library heavily uses List methods.
-Also, here's some friendly advice. Remember that these functions TAKE OUT cards from decks, which means the number of cards decrease, too. You may or not want to increase / decrease the values of variables that count the number of cards on hands, decks, graveyards, or length functions... It's up to you!
+Also, here's some friendly advice. Remember that these functions TAKE OUT cards from decks, which means the number of cards decrease, too. You may or may not want to increase / decrease the values of variables that count the number of cards on hands, decks, graveyards, or length functions... It's up to you!
 
 
 draw(deckVar, handVar, lenCheck):
@@ -10,20 +10,20 @@ Draws the top card of a deck, deckVar (where you should put a variable correspon
 Example: draw(myDeck, myHand, True)
 
 
-search(card, deckVar, handVar):
+search(card, deckVar, handVar, shuffleAfter):
 
-Adds a card from a deck (deckVar) to a hand (handVar), then shuffles the deck and RETURNS the card. 'card' can be treated as, for example, a variable or list element. Only one card of the given name is taken, not all occurences!
+Adds a card from a deck (deckVar) to a hand (handVar), and RETURNS the card. 'card' can be treated as, for example, a variable or list element. Only one card of the given name is taken, not all occurences!
 
 Example: search("Swamp", myDeck, myHand) - This would search a deck for a card named 'Swamp' and put it on a player's hand. It returns "Swamp".
 
-search(myDeck[2], myDeck, myHand) - This would search for the third card on top of a player's deck and put it on their hand. It would return the third card.
+search(myDeck[2], myDeck, myHand, True) - This would search for the third card on top of a player's deck and put it on their hand. It would return the third card, and since shuffleAfter is true, it would then shuffle the deck.
 
 
-bury(card, deckVar, gyVar):
+bury(card, deckVar, gyVar, shuffleAfter):
 
-Sends a card from a deck (deckVar) to a graveyard / discard pile (gyVar), then shuffles the deck and RETURNS the sent card. 'card' can be treated as, for example, a variable or list element. Only one card of the given name is taken, not all occurences!
+Sends a card from a deck (deckVar) to a graveyard / discard pile (gyVar), and RETURNS the sent card. 'card' can be treated as, for example, a variable or list element. Only one card of the given name is taken, not all occurences!
 
-Example: bury("Zombie", myDeck, graveyard) - This would send a card named "Zombie" from a deck to the graveyard / discard pile. It returns "Zombie".
+Example: bury("Zombie", myDeck, graveyard, True) - This would send a card named "Zombie" from a deck to the graveyard / discard pile. It returns "Zombie", and the deck is shuffled after that.
 
 
 mill(deckVar, gyVar, number):
@@ -33,8 +33,26 @@ Sends the top X cards (number) of a deck to the graveyard / discard pile (gyVar)
 Example: mill(myDeck, gy, 3) - This would send the top 3 cards of a deck to the graveyard / discard pile. Let's suppose those milled cards were, for example, "Island", "Erasure", "Giant". It would return a list with those values.
 
 
-returnCard(card, deckVar, gyVar):
+returnCard(card, deckVar, gyVar, shuffleAfter):
 
-Returns a card (card) to a deck (deckVar) from a graveyard / discard pile (gyVar). The deck is then shuffled, and it RETURNS the chosen card.
+Returns a card (card) to a deck (deckVar) from a graveyard / discard pile (gyVar). It RETURNS the chosen card.
 
-Example: returnCard("Island", mydeck, graveyard) - This would return a card named "Island" from a deck to the graveyard / discard pile, then shuffle the deck and return "Island".
+Example: returnCard("Island", myDeck, graveyard, False) - This would return a card named "Island" from a deck to the graveyard / discard pile, then return "Island". Since shuffleAfter is false, the deck would not be shuffled.
+
+gyToHand(card, gyVar, handVar):
+
+Returns a card (card) from a graveyard / discard pile (gyVar) to the hand (handVar). It RETURNS the chosen card.
+
+Example: gyToHand("Dinosaur", graveyard, myHand) - This would return a card named "Dinosaur" from the graveyard / discard pile to the hand, then return "Dinosaur".
+
+topDeck(card, deckVar, gyVar):
+
+Returns a card (card) from a graveyard / discard pile (gyVar) to the top of a deck (deckVar). It first checks if the graveyard is empty and raises an error if that is the case - then RETURNS the chosen card.
+
+Example: topDeck("Super Key", myDeck, graveyard) - This would return a card named "Super Key" to the top of a deck (assuming the graveyard is not empty)
+
+bottomDeck(card, deckVar, gyVar):
+
+Returns a card (card) from a graveyard / discard pile (gyVar) to the bottom of a deck (deckVar). It first checks if the graveyard is empty and raises an error if that is the case - then RETURNS the chosen card.
+
+Example: bottomDeck("Dungeon", myDeck, graveyard) - This would return a card named "Dungeon" to the bottom of a deck (assuming the graveyard is not empty)
