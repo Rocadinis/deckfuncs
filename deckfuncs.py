@@ -28,7 +28,14 @@ def bury(card, deckVar, gyVar, shuffleAfter):
         shuffle(deckVar)
     return card
 
+def discard(card, handVar, gyVar):
+    handVar.remove(card)
+    gyVar.append(card)
+    return card
+
 def mill(deckVar, gyVar, number):
+    if type(number) != int:
+        raise TypeError("The number of cards to mill must be an integer")
     milledList = []
     for i in range(number):
         topCard = deckVar.pop(0)
@@ -69,3 +76,14 @@ def bottomDeck(card, deckVar, gyVar):
         gyVar.remove(card)
         deckVar.insert(deckLength + 1, card)
         return card
+
+def viewTopCards(deckVar, numCards):
+    if type(numCards) != int:
+        raise TypeError("The number of cards to be viewed must be an integer")
+    elif numCards <= 0:
+        raise Exception("The number of cards to be viewed must not be 0 or less")
+    else:
+        viewed = []
+        for i in range(numCards):
+            viewed.insert(i - 1, deckVar[0:numCards])
+            return viewed

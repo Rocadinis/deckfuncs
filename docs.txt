@@ -26,6 +26,13 @@ Sends a card from a deck (deckVar) to a graveyard / discard pile (gyVar), and RE
 Example: bury("Zombie", myDeck, graveyard, True) - This would send a card named "Zombie" from a deck to the graveyard / discard pile. It returns "Zombie", and the deck is shuffled after that.
 
 
+discard(card, handVar, gyVar):
+
+Discards a card (card) from the hand (handVar) and sends it to the graveyard / discard pile (gyVar).
+
+Example: discard("Human", myHand, graveyard) - This would discard a card named "Human" from a player's hand to the graveyard.
+
+
 mill(deckVar, gyVar, number):
 
 Sends the top X cards (number) of a deck to the graveyard / discard pile (gyVar). Then, it RETURNS a list with the milled cards. Keep in mind that the last cards that go into the graveyard will effectively be in the first positions in the graveyard / discard pile list.
@@ -39,11 +46,13 @@ Returns a card (card) to a deck (deckVar) from a graveyard / discard pile (gyVar
 
 Example: returnCard("Island", myDeck, graveyard, False) - This would return a card named "Island" from a deck to the graveyard / discard pile, then return "Island". Since shuffleAfter is false, the deck would not be shuffled.
 
+
 gyToHand(card, gyVar, handVar):
 
 Returns a card (card) from a graveyard / discard pile (gyVar) to the hand (handVar). It RETURNS the chosen card.
 
 Example: gyToHand("Dinosaur", graveyard, myHand) - This would return a card named "Dinosaur" from the graveyard / discard pile to the hand, then return "Dinosaur".
+
 
 topDeck(card, deckVar, gyVar):
 
@@ -51,8 +60,16 @@ Returns a card (card) from a graveyard / discard pile (gyVar) to the top of a de
 
 Example: topDeck("Super Key", myDeck, graveyard) - This would return a card named "Super Key" to the top of a deck (assuming the graveyard is not empty)
 
+
 bottomDeck(card, deckVar, gyVar):
 
 Returns a card (card) from a graveyard / discard pile (gyVar) to the bottom of a deck (deckVar). It first checks if the graveyard is empty and raises an error if that is the case - then RETURNS the chosen card.
 
 Example: bottomDeck("Dungeon", myDeck, graveyard) - This would return a card named "Dungeon" to the bottom of a deck (assuming the graveyard is not empty)
+
+
+viewTopCards(deckVar, numCards):
+
+Views the top X cards (numCards) from a deck (deckVar). It RETURNS a list with the seen cards.
+
+Example: viewTopCards(deck, 2) - for a deck with the cards ["1", "2", "3", "4"] (in this specific order), it would return the list ["1", "2"].
