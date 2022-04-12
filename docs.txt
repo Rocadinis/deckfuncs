@@ -28,7 +28,7 @@ Example: bury("Zombie", myDeck, graveyard, True) - This would send a card named 
 
 discard(card, handVar, gyVar):
 
-Discards a card (card) from the hand (handVar) and sends it to the graveyard / discard pile (gyVar).
+Discards a card (card) from the hand (handVar) and sends it to the graveyard / discard pile (gyVar), then RETURNS the card sent.
 
 Example: discard("Human", myHand, graveyard) - This would discard a card named "Human" from a player's hand to the graveyard.
 
@@ -73,3 +73,10 @@ viewTopCards(deckVar, numCards):
 Views the top X cards (numCards) from a deck (deckVar). It RETURNS a list with the seen cards.
 
 Example: viewTopCards(deck, 2) - for a deck with the cards ["1", "2", "3", "4"] (in this specific order), it would return the list ["1", "2"].
+
+
+shuffleHandIntoDeck(deckVar, handVar):
+
+Shuffles an entire hand (handVar) into a deck (deckVar), then RETURNS a list containing the shuffled cards.
+
+Example: shuffleHandIntoDeck(deck, myHand) - Returns all the cards in myHand to deck, then shuffles the deck and returns the list of the shuffled cards.

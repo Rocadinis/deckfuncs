@@ -87,3 +87,13 @@ def viewTopCards(deckVar, numCards):
         for i in range(numCards):
             viewed.insert(i - 1, deckVar[0:numCards])
             return viewed
+
+def shuffleHandIntoDeck(deckVar, handVar): # i tried going for a "for each card in hand" loop but for some reason it shuffled cards until only 3 were left in hand, and idk why. this code works though
+    shuffled = []
+    toAdd = deckVar[0]
+    for i in range(len(handVar)):
+        deckVar.append(toAdd)
+        shuffled.append(toAdd)
+        handVar.pop(0)
+    shuffle(deckVar)
+    return shuffled

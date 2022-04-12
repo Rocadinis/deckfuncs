@@ -1,7 +1,7 @@
 """
 INSTRUCTIONS: Type a command and this file will do the selected operation using deckfuncs.
 note: the card names are case-sensitive
-available commands: search, draw, view, bury, discard, mill, return to deck, to top of deck, to bottom of deck, graveyard to hand / gy to hand, view top cards, play, remove
+available commands: search, draw, view, bury, discard, mill, return to deck, to top of deck, to bottom of deck, graveyard to hand / gy to hand, view top cards, play, remove, shuffle hand
 """
 import deckfuncs as df
 from random import shuffle
@@ -159,6 +159,18 @@ def commands():
             commands()
         else:
             print("Either the card was not found or the specified area was invalid. Please try again.")
+            commands()
+    elif command == "shuffle hand":
+        shuffleConf = input("Shuffle ENTIRE hand into deck? ").lower()
+        if shuffleConf == "yes" or shuffleConf == "y":
+            df.shuffleHandIntoDeck(deck, hand)
+            print("Hand shuffled into the deck.")
+            commands()
+        elif shuffleConf == "no" or shuffleConf == "n":
+            print("Process aborted.")
+            commands()
+        else:
+            print("An unclear instruction was given, so the process was aborted.")
             commands()
     else:
         print("Command not found. Please try again.")
