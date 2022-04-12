@@ -21,7 +21,7 @@ def search(card, deckVar, handVar, shuffleAfter):
 
 def bury(card, deckVar, gyVar, shuffleAfter):
     deckVar.remove(card)
-    gyVar.append(card)
+    gyVar.insert(0, card)
     if type(shuffleAfter) != bool:
         raise TypeError("The shuffleAfter variable must be true or false")
     elif shuffleAfter == True:
@@ -30,7 +30,7 @@ def bury(card, deckVar, gyVar, shuffleAfter):
 
 def discard(card, handVar, gyVar):
     handVar.remove(card)
-    gyVar.append(card)
+    gyVar.insert(0, card)
     return card
 
 def mill(deckVar, gyVar, number):
