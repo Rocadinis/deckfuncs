@@ -132,15 +132,20 @@ def commands():
     elif command == "play":
         toPlay = input("Play which Pokémon? ")
         try:
-            hand.remove(toPlay)
             if len(activeSpot) < 1:
+                hand.remove(toPlay)
                 activeSpot.append(toPlay)
                 print("You put " + toPlay + " on your active spot.")
                 commands()
             else:
-                bench.append(toPlay)
-                print("You put " + toPlay + " on your bench.")
-                commands()
+                if len(bench) == 5:
+                    print("Your bench is full.")
+                    commands()
+                else:
+                    hand.remove(toPlay)
+                    bench.append(toPlay)
+                    print("You put " + toPlay + " on your bench.")
+                    commands()
         except:
             print("A card with that name was not found.")
             commands()
