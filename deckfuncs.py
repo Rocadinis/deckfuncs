@@ -11,20 +11,22 @@ def draw(deckVar, handVar, lenCheck):
         return drawn
 
 def search(card, deckVar, handVar, shuffleAfter):
-    deckVar.remove(card)
-    handVar.append(card)
     if type(shuffleAfter) != bool:
         raise TypeError("The shuffleAfter variable must be true or false")
-    elif shuffleAfter == True:
+    else:
+        deckVar.remove(card)
+        handVar.append(card)
+    if shuffleAfter == True:
         shuffle(deckVar)
     return card
 
 def bury(card, deckVar, gyVar, shuffleAfter):
-    deckVar.remove(card)
-    gyVar.insert(0, card)
     if type(shuffleAfter) != bool:
         raise TypeError("The shuffleAfter variable must be true or false")
-    elif shuffleAfter == True:
+    else:
+         deckVar.remove(card)
+         gyVar.insert(0, card)
+    if shuffleAfter == True:
         shuffle(deckVar)
     return card
 
@@ -44,11 +46,12 @@ def mill(deckVar, gyVar, number):
     return milledList
         
 def returnCard(card, deckVar, gyVar, shuffleAfter):
-    gyVar.remove(card)
-    deckVar.append(card)
     if type(shuffleAfter) != bool:
         raise TypeError("The shuffleAfter variable must be true or false")
-    elif shuffleAfter == True:
+    else:
+        gyVar.remove(card)
+        deckVar.append(card)
+    if shuffleAfter == True:
         shuffle(deckVar)
     return card
 
