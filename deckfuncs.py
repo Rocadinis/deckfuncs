@@ -93,10 +93,20 @@ def viewTopCards(deckVar, numCards):
 
 def shuffleHandIntoDeck(deckVar, handVar): # i tried going for a "for each card in hand" loop but for some reason it shuffled cards until only 3 were left in hand, and idk why. this code works though
     shuffled = []
-    toAdd = deckVar[0]
     for i in range(len(handVar)):
+        toAdd = handVar[0]
         deckVar.append(toAdd)
         shuffled.append(toAdd)
         handVar.pop(0)
+    shuffle(deckVar)
+    return shuffled
+
+def shuffleGYIntoDeck(deckVar, gyVar): # the same happened in this function during testing, I assume it's python's fault for some reason
+    shuffled = []
+    for i in range(len(gyVar)):
+        toAdd = gyVar[0]
+        deckVar.append(toAdd)
+        shuffled.append(toAdd)
+        gyVar.pop(0)
     shuffle(deckVar)
     return shuffled

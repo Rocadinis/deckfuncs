@@ -1,7 +1,7 @@
 """
 INSTRUCTIONS: Type a command and this file will do the selected operation using deckfuncs.
 note: the card names are case-sensitive
-available commands: search, draw, view, bury, discard, mill, return to deck, to top of deck, to bottom of deck, graveyard to hand / gy to hand, view top cards, play, remove, shuffle hand
+available commands: search, draw, view, bury, discard, mill, return to deck, to top of deck, to bottom of deck, graveyard to hand / gy to hand, view top cards, play, remove, shuffle hand, shuffle graveyard / shuffle gy
 """
 import deckfuncs as df
 from random import shuffle
@@ -170,6 +170,18 @@ def commands():
         if shuffleConf == "yes" or shuffleConf == "y":
             df.shuffleHandIntoDeck(deck, hand)
             print("Hand shuffled into the deck.")
+            commands()
+        elif shuffleConf == "no" or shuffleConf == "n":
+            print("Process aborted.")
+            commands()
+        else:
+            print("An unclear instruction was given, so the process was aborted.")
+            commands()
+    elif command == "shuffle graveyard" or command == "shuffle gy":
+        shuffleConf = input("Shuffle ENTIRE graveyard into deck? ").lower()
+        if shuffleConf == "yes" or shuffleConf == "y":
+            df.shuffleGYIntoDeck(deck, graveyard)
+            print("Graveyard shuffled into the deck.")
             commands()
         elif shuffleConf == "no" or shuffleConf == "n":
             print("Process aborted.")

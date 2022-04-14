@@ -80,3 +80,9 @@ shuffleHandIntoDeck(deckVar, handVar):
 Shuffles an entire hand (handVar) into a deck (deckVar), then RETURNS a list containing the shuffled cards.
 
 Example: shuffleHandIntoDeck(deck, myHand) - Returns all the cards in myHand to deck, then shuffles the deck and returns the list of the shuffled cards.
+
+shuffleGYIntoDeck(deckVar, gyVar):
+
+Shuffles an entire graveyard / discard pile (gyVar) into a deck (deckVar), then RETURNS a list containing the shuffled cards.
+
+Example: shuffleGYIntoDeck(deck, graveyard) - Returns all the cards in the graveyard to deck, then shuffles the deck and returns the list of the shuffled cards.
