@@ -110,3 +110,9 @@ def shuffleGYIntoDeck(deckVar, gyVar): # the same happened in this function duri
         gyVar.pop(0)
     shuffle(deckVar)
     return shuffled
+
+def findCopies(card, target):
+    copies = []
+    for i in range(target.count(card)):
+        copies.append(card)
+    return copies

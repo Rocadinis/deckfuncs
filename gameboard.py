@@ -1,7 +1,7 @@
 """
 INSTRUCTIONS: Type a command and this file will do the selected operation using deckfuncs.
 note: the card names are case-sensitive
-available commands: search, draw, view, bury, discard, mill, return to deck, to top of deck, to bottom of deck, graveyard to hand / gy to hand, view top cards, play, remove, shuffle hand, shuffle graveyard / shuffle gy
+available commands: search, draw, view, bury, discard, mill, return to deck, to top of deck, to bottom of deck, graveyard to hand / gy to hand, view top cards, play, remove, shuffle hand, shuffle graveyard / shuffle gy, find copies
 """
 import deckfuncs as df
 from random import shuffle
@@ -153,15 +153,23 @@ def commands():
         removedCard = input("Remove which card? ")
         removeFrom = input("Remove from which area? (Active spot / Bench) ").lower()
         if removeFrom == "active spot" or removeFrom == "active":
-            activeSpot.pop(0)
-            graveyard.insert(0, removedCard)
-            print(removedCard + " was removed from the active spot and sent to the graveyard.")
-            commands()
+            if removedCard in activeSpot:
+                activeSpot.pop(0)
+                graveyard.insert(0, removedCard)
+                print(removedCard + " was removed from the active spot and sent to the graveyard.")
+                commands()
+            else:
+                print("Either the card was not found or the specified area was invalid. Please try again.")
+                commands()
         elif removeFrom == "bench":
-            bench.remove(removedCard)
-            graveyard.insert(0, removedCard)
-            print(removedCard + " was removed from the bench and sent to the graveyard.")
-            commands()
+            if removedCard in bench:
+                bench.remove(removedCard)
+                graveyard.insert(0, removedCard)
+                print(removedCard + " was removed from the bench and sent to the graveyard.")
+                commands()
+            else:
+                print("Either the card was not found or the specified area was invalid. Please try again.")
+                commands()
         else:
             print("Either the card was not found or the specified area was invalid. Please try again.")
             commands()
@@ -188,6 +196,20 @@ def commands():
             commands()
         else:
             print("An unclear instruction was given, so the process was aborted.")
+            commands()
+    elif command == "find copies":
+        targetCard = input("Find copies of which card? ")
+        targetArea = input("Find copies in which area? (Deck / Graveyard) ").lower()
+        if targetArea == "deck":
+            numCards = len(df.findCopies(targetCard, deck))
+            print(numCards, "cards with that name were found in your deck.")
+            commands()
+        elif targetArea == "graveyard" or targetArea == "gy":
+            numCards = len(df.findCopies(targetCard, graveyard))
+            print(numCards, "cards with that name were found in your graveyard.")
+            commands()
+        else:
+            print("An invalid area was given, so the process was aborted.")
             commands()
     else:
         print("Command not found. Please try again.")
