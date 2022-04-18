@@ -97,6 +97,6 @@ Example: findCopies("Super Creature", deck) - This would find all instances of "
 
 cut(deckVar, shuffleBefore):
 
-Cuts a deck (deckVar) into half (rounded down). If shuffleBefore is true, this function shuffles the deck before cutting it. NOTE: The other half of the deck is not kept.
+Cuts a deck (deckVar) into two halves (rounded down). If shuffleBefore is true, this function shuffles the deck before cutting it, and RETURNS a tuple with the two halves. Check the examples folder for an example.
 
-Example: cut(deck, True) - On a deck of 10 cards, this would cut the deck in half (thus, 5 cards). The deck would be shuffled beforehand.
+Example: cut(deck, True) - On a deck of 10 cards, this would cut the deck two halves (thus, 5 cards each). The deck would be shuffled beforehand.

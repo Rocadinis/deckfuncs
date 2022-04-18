@@ -124,9 +124,11 @@ def cut(deckVar, shuffleBefore):
             shuffle(deckVar)
         if len(deckVar) % 2 == 0:
             cutNum = int(len(deckVar) / 2)
-            cutDeck = deckVar[cutNum:]
-            return cutDeck
+            cutDeck1 = deckVar[cutNum:]
+            cutDeck2 = deckVar[:cutNum]
+            return cutDeck1, cutDeck2
         else:
             cutNum = math.floor(len(deckVar) / 2)
-            cutDeck = deckVar[cutNum:]
-            return cutDeck
+            cutDeck1 = deckVar[cutNum:]
+            cutDeck2 = deckVar[:cutNum]
+            return cutDeck1, cutDeck2

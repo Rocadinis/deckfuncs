@@ -215,7 +215,7 @@ def commands():
     elif command == "cut":
         cutConf = input("Cut deck in one half? The other half will be deleted. ")
         if cutConf == "yes" or cutConf == "y":
-            deck = df.cut(deck, True)
+            deck = df.cut(deck, True)[0]
             print("The deck has been cut.")
             commands()
         elif cutConf == "no" or cutConf == "n":
