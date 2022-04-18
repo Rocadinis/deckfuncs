@@ -3,10 +3,9 @@ IMPORTANT! If you are going to use these functions, keep in mind that the variab
 Also, here's some friendly advice. Remember that these functions TAKE OUT cards from decks, which means the number of cards decrease, too. You may or may not want to increase / decrease the values of variables that count the number of cards on hands, decks, graveyards, or length functions... It's up to you!
 
 
-draw(deckVar, handVar, lenCheck):
+draw(deckVar, handVar):
 
-Draws the top card of a deck, deckVar (where you should put a variable correspondant to a deck), and places it on a hand - handVar (a hand variable.). This also RETURNS the drawn card. If lenCheck (bool) is set to true, this function reads the number of cards in deckVar, and will do nothing if the number of cards is 0 or less (preventing the draw). If lenCheck is set to false, this bypasses the check.
-
+Draws the top card of a deck, deckVar (where you should put a variable correspondant to a deck), and places it on a hand - handVar (a hand variable.). This also RETURNS the drawn card. It will raise an error if the number of cards is 0 or less.
 Example: draw(myDeck, myHand, True)
 
 
@@ -94,3 +93,10 @@ findCopies(card, target):
 Finds copies of a card (card) inside a list (target), then RETURNS a list with the found copies.
 
 Example: findCopies("Super Creature", deck) - This would find all instances of "Super Creature" found in a deck (list), then return a list containing all copies of "Super Creature" found there.
+
+
+cut(deckVar, shuffleBefore):
+
+Cuts a deck (deckVar) into half (rounded down). If shuffleBefore is true, this function shuffles the deck before cutting it. NOTE: The other half of the deck is not kept.
+
+Example: cut(deck, True) - On a deck of 10 cards, this would cut the deck in half (thus, 5 cards). The deck would be shuffled beforehand.

@@ -1,10 +1,9 @@
 # Made by Rocadinis at github.com
 from random import shuffle
-def draw(deckVar, handVar, lenCheck):
-    if type(lenCheck) != bool:
-        raise TypeError("The lenCheck variable must be true or false")
-    elif lenCheck == True and len(deckVar) <= 0:
-        pass
+import math
+def draw(deckVar, handVar):
+    if len(deckVar) <= 0:
+        raise Exception("The deck list is empty")
     else:
         drawn = deckVar.pop(0)
         handVar.append(drawn)
@@ -116,3 +115,18 @@ def findCopies(card, target):
     for i in range(target.count(card)):
         copies.append(card)
     return copies
+
+def cut(deckVar, shuffleBefore):
+    if type(shuffleBefore) != bool:
+        raise TypeError("The shuffleAfter variable must be true or false")
+    else:
+        if shuffleBefore == True:
+            shuffle(deckVar)
+        if len(deckVar) % 2 == 0:
+            cutNum = int(len(deckVar) / 2)
+            cutDeck = deckVar[cutNum:]
+            return cutDeck
+        else:
+            cutNum = math.floor(len(deckVar) / 2)
+            cutDeck = deckVar[cutNum:]
+            return cutDeck

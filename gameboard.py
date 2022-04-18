@@ -12,9 +12,10 @@ activeSpot = []
 bench = []
 shuffle(deck)
 for x in range(7):
-    df.draw(deck, hand, False)
+    df.draw(deck, hand)
 print(hand)
 def commands():
+    global deck
     command = input("Command? ").lower()
     if command == "search":
         toSearch = input("Card to search? ")
@@ -32,7 +33,7 @@ def commands():
             print("The number must be an integer.")
             commands()
         for i in range(numDraw):
-            drawn = df.draw(deck, hand, True)
+            drawn = df.draw(deck, hand)
             print("You drew: " + drawn)
         commands()
     elif command == "view":
@@ -210,6 +211,18 @@ def commands():
             commands()
         else:
             print("An invalid area was given, so the process was aborted.")
+            commands()
+    elif command == "cut":
+        cutConf = input("Cut deck in one half? The other half will be deleted. ")
+        if cutConf == "yes" or cutConf == "y":
+            deck = df.cut(deck, True)
+            print("The deck has been cut.")
+            commands()
+        elif cutConf == "no" or cutConf == "n":
+            print("Process aborted.")
+            commands()
+        else:
+            print("An unclear instruction was given, so the process was aborted.")
             commands()
     else:
         print("Command not found. Please try again.")
