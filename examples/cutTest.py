@@ -1,4 +1,4 @@
-# This is an example of the cut function and now to manage its return values.
+# This is an example of the cut function and how to manage its return values.
 from random import shuffle
 import math
 def cut(deckVar, shuffleBefore):

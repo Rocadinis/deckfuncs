@@ -1,0 +1,11 @@
+Copyright (c) 2022, Rodrigo Dinis, All rights reserved
+
+You MAY:
+
+- Use deckfuncs in commercial, non-commercial and / or private purposes
+- Share improvements to deckfuncs, under certain conditions (check below)
+
+You MAY NOT:
+
+- Modify deckfuncs
+- Distribute closed-source versions of deckfuncs

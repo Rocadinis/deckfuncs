@@ -1,11 +1,11 @@
 """
 INSTRUCTIONS: Type a command and this file will do the selected operation using deckfuncs.
 note: the card names are case-sensitive
-available commands: search, draw, view, bury, discard, mill, return to deck, to top of deck, to bottom of deck, graveyard to hand / gy to hand, view top cards, play, remove, shuffle hand, shuffle graveyard / shuffle gy, find copies
+available commands: search, draw, view, bury, discard, mill, return to deck, to top of deck, to bottom of deck, graveyard to hand / gy to hand, view top cards, play, remove, shuffle hand, shuffle graveyard / shuffle gy, find copies, cut, roll die
 """
 import deckfuncs as df
-from random import shuffle
-deck = ["Crobat V", "Crobat V", "Deino", "Deino", "Zweilous", "Hydreigon", "Hydreigon", "Koffing", "Koffing", "Koffing", "Koffing", "Weezing", "Weezing", "Weezing", "Galarian Weezing", "Galarian Weezing", "Quick Ball", "Quick Ball", "Quick Ball", "Quick Ball", "Rare Candy", "Rare Candy", "Evolution Incense", "Evolution Incense", "Evolution Incense", "Battle VIP Pass", "Battle VIP Pass", "Battle VIP Pass", "Battle VIP Pass", "Familiar Bell", "Familiar Bell", "Switch", "Switch", "Ordinary Rod", "Ordinary Rod", "Marnie", "Marnie", "Boss's Orders", "Boss's Orders", "Professor's Research", "Professor's Research", "Piers", "Piers", "Choice Belt", "Choice Belt", "Choice Belt", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy"]
+from random import shuffle, randint
+deck = ["Crobat V", "Crobat V", "Deino", "Deino", "Zweilous", "Hydreigon", "Hydreigon", "Koffing", "Koffing", "Koffing", "Koffing", "Weezing", "Weezing", "Weezing", "Galarian Weezing", "Galarian Weezing", "Quick Ball", "Quick Ball", "Quick Ball", "Quick Ball", "Rare Candy", "Rare Candy", "Evolution Incense", "Evolution Incense", "Evolution Incense", "Battle VIP Pass", "Battle VIP Pass", "Battle VIP Pass", "Battle VIP Pass", "Ultra Ball", "Ultra Ball", "Switch", "Switch", "Ordinary Rod", "Ordinary Rod", "Marnie", "Marnie", "Boss's Orders", "Boss's Orders", "Professor's Research", "Professor's Research", "Piers", "Piers", "Choice Belt", "Choice Belt", "Choice Belt", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy", "Darkness Energy"]
 hand = []
 graveyard = []
 activeSpot = []
@@ -215,7 +215,7 @@ def commands():
     elif command == "cut":
         cutConf = input("Cut deck in one half? The other half will be deleted. ")
         if cutConf == "yes" or cutConf == "y":
-            deck = df.cut(deck, True)[0]
+            deck = df.cut(deck, True)[randint(0,1)] # one of the returned cut() variables is chosen randomly, and the other half is deleted
             print("The deck has been cut.")
             commands()
         elif cutConf == "no" or cutConf == "n":
@@ -223,6 +223,15 @@ def commands():
             commands()
         else:
             print("An unclear instruction was given, so the process was aborted.")
+            commands()
+    elif command == "roll die":
+        sidesNum = int(input("Roll a die with how many sides? "))
+        if type(sidesNum) != int:
+            print("The number of sides must be an integer.")
+            commands()
+        else:
+            rolled = str(df.dice(sidesNum))
+            print("You rolled a " + rolled + ".")
             commands()
     else:
         print("Command not found. Please try again.")

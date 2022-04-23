@@ -1,5 +1,5 @@
 # Made by Rocadinis at github.com
-from random import shuffle
+from random import shuffle, randint
 import math
 def draw(deckVar, handVar):
     if len(deckVar) <= 0:
@@ -132,3 +132,9 @@ def cut(deckVar, shuffleBefore):
             cutDeck1 = deckVar[cutNum:]
             cutDeck2 = deckVar[:cutNum]
             return cutDeck1, cutDeck2
+
+def dice(sides):
+    if type(sides) != int:
+        raise TypeError("The sides variable must be an integer")
+    else:
+        return randint(1, sides)

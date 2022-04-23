@@ -1,5 +1,5 @@
 Deckfuncs is a library for card-based games.
-IMPORTANT! If you are going to use these functions, keep in mind that the variables correspondant to Hands, Decks and Graveyards (if this last one does exist) need to be Lists in order for these functions to work, since this library heavily uses List methods.
+IMPORTANT! If you are going to use these functions, keep in mind that the variables correspondant to Hands, Decks and Graveyards (if this last one does exist) need to be Lists in order for these functions to work, since this library heavily uses List operations.
 Also, here's some friendly advice. Remember that these functions TAKE OUT cards from decks, which means the number of cards decrease, too. You may or may not want to increase / decrease the values of variables that count the number of cards on hands, decks, graveyards, or length functions... It's up to you!
 
 
@@ -100,3 +100,10 @@ cut(deckVar, shuffleBefore):
 Cuts a deck (deckVar) into two halves (rounded down). If shuffleBefore is true, this function shuffles the deck before cutting it, and RETURNS a tuple with the two halves. Check the examples folder for an example.
 
 Example: cut(deck, True) - On a deck of 10 cards, this would cut the deck two halves (thus, 5 cards each). The deck would be shuffled beforehand.
+
+
+dice(sides):
+
+Rolls a die with X sides (sides variable), RETURNING a random number.
+
+Example: dice(6) - Rolls a die with 6 sides, returning a number from 1 to 6.
