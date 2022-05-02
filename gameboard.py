@@ -1,3 +1,4 @@
+# (C) Rodrigo Dinis, 2022
 """
 INSTRUCTIONS: Type a command and this file will do the selected operation using deckfuncs.
 note: the card names are case-sensitive

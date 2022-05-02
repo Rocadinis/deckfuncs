@@ -1,4 +1,4 @@
-# Made by Rocadinis at github.com
+# (C) Rodrigo Dinis, 2022
 from random import shuffle, randint
 import math
 def draw(deckVar, handVar):
