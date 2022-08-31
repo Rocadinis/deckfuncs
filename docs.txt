@@ -107,3 +107,10 @@ dice(sides):
 Rolls a die with X sides (sides variable), RETURNING a random number.
 
 Example: dice(6) - Rolls a die with 6 sides, returning a number from 1 to 6.
+
+
+deckToTop(card, deckVar):
+
+Puts a card from a deck on top of the deck. It only puts one occurence at a time.
+
+Example: deckToTop("Goblin", deck) - Puts a card named "Goblin" on top of a deck.

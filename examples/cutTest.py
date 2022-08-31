@@ -3,7 +3,7 @@ from random import shuffle
 import math
 def cut(deckVar, shuffleBefore):
     if type(shuffleBefore) != bool:
-        raise TypeError("The shuffleAfter variable must be true or false")
+        raise TypeError("The shuffleBefore variable must be true or false")
     else:
         if shuffleBefore == True:
             shuffle(deckVar)

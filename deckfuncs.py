@@ -118,7 +118,7 @@ def findCopies(card, target):
 
 def cut(deckVar, shuffleBefore):
     if type(shuffleBefore) != bool:
-        raise TypeError("The shuffleAfter variable must be true or false")
+        raise TypeError("The shuffleBefore variable must be true or false")
     else:
         if shuffleBefore == True:
             shuffle(deckVar)
@@ -138,3 +138,8 @@ def dice(sides):
         raise TypeError("The sides variable must be an integer")
     else:
         return randint(1, sides)
+
+def deckToTop(card, deckVar):
+    deckVar.remove(card)
+    deckVar.insert(0, card)
+    return card
